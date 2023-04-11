@@ -6,7 +6,7 @@ if (isMale && age < 30)
 {
     Console.WriteLine("Mężczyzna poniżej 30 lat");
     //(2)
-    if (isMale && name == "Michał" && age == 23)
+    if (name == "Michał" && age == 23)
     {
         Console.WriteLine("Michał, lat 23");
     }
