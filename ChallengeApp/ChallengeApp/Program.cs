@@ -1,37 +1,42 @@
-﻿int number = 4566;
-string numberInString = number.ToString();
-char[] letters = numberInString.ToArray();
+﻿using ChallengeApp;
 
-Console.WriteLine("Dla liczby: " + number + "\n");
+Employee employee1 = new Employee("Jacek", "Nowak", 33);
+Employee employee2 = new Employee("Monika", "Kowalska", 24);
+Employee employee3 = new Employee("Stanisław", "Lem", 45);
 
-int[] counter = new int[10];
-counter[0] = 0;
-counter[1] = 0;
-counter[2] = 0;
-counter[3] = 0;
-counter[4] = 0;
-counter[5] = 0;
-counter[6] = 0;
-counter[7] = 0;
-counter[8] = 0;
-counter[9] = 0;
+employee1.AddScore(3);
+employee1.AddScore(5);
+employee1.AddScore(8);
+employee1.AddScore(4);
+employee1.AddScore(2);
 
-foreach (char c in letters)
+employee2.AddScore(9);
+employee2.AddScore(9);
+employee2.AddScore(7);
+employee2.AddScore(4);
+employee2.AddScore(2);
+
+employee3.AddScore(6);
+employee3.AddScore(9);
+employee3.AddScore(8);
+employee3.AddScore(3);
+employee1.AddScore(5);
+
+List<Employee> employees = new List<Employee>()
 {
-    if (c == '0') counter[0]++;
-    else if (c == '1') counter[1]++;
-    else if (c == '2') counter[2]++;
-    else if (c == '3') counter[3]++;
-    else if (c == '4') counter[4]++;
-    else if (c == '5') counter[5]++;
-    else if (c == '6') counter[6]++;
-    else if (c == '7') counter[7]++;
-    else if (c == '8') counter[8]++;
-    else if (c == '9') counter[9]++;
+    employee1, employee2, employee3
+};
+
+var bestResult = -1;
+Employee bestEmployee = null;
+
+foreach (var employee in employees)
+{
+    if (employee.Result > bestResult)
+    {
+        bestResult = employee.Result;
+        bestEmployee = employee;
+    }
 }
 
-
-for (var i = 0; i < counter.Length; i++)
-{
-    Console.WriteLine(i + " => " + counter[i]);
-}
+Console.WriteLine("Najlepszy pracownik:" + "\n" + bestEmployee.Name + " " + bestEmployee.Surname + ", wiek: " + bestEmployee.Age + ", wynik: " + bestEmployee.Result);
