@@ -26,5 +26,10 @@
             this.score.Add(number);
         }
 
+        public void SubstractScore(int number)
+        {
+            this.score.Add(-number);
+        }
+
     }
 }
