@@ -40,5 +40,44 @@ namespace ChallengeApp.Test
 
             Assert.AreEqual(4, statistics.Average);
         }
+      
+        [Test]
+        public void GradeAsFloat()
+        {
+            var employee = new Employee("Bob", "Johnson");
+            employee.AddGrade(6f);
+            employee.AddGrade(2);
+            employee.AddGrade(4);
+            
+            var statistics = employee.GetStatistics();
+
+            Assert.AreEqual(4, Math.Round(statistics.Average));
+        }
+        
+        [Test]
+        public void GradeAsDouble()
+        {
+            var employee = new Employee("Bob", "Johnson");
+            employee.AddGrade(6d);
+            employee.AddGrade(2);
+            employee.AddGrade(4);
+            
+            var statistics = employee.GetStatistics();
+
+            Assert.AreEqual(4, Math.Round(statistics.Average));
+        } 
+        
+        [Test]
+        public void GradeAsString()
+        {
+            var employee = new Employee("Bob", "Johnson");
+            employee.AddGrade("6");
+            employee.AddGrade(2);
+            employee.AddGrade(4);
+            
+            var statistics = employee.GetStatistics();
+
+            Assert.AreEqual(4, statistics.Average);
+        }
     }
 }
