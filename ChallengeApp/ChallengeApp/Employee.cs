@@ -1,4 +1,6 @@
-﻿namespace ChallengeApp
+﻿using System.Diagnostics;
+
+namespace ChallengeApp
 {
     public class Employee
     {
@@ -31,7 +33,7 @@
             {
                 this.AddGrade(result);
             }
-            else 
+            else
             {
                 Console.WriteLine("string is not float");
             }
@@ -55,7 +57,52 @@
             this.AddGrade(intInFloat);
         }
 
-        public Statistics GetStatistics()
+        public Statistics GetStatisticsWithDoWhile()
+        {
+            var statisctics = new Statistics();
+            statisctics.Average = 0;
+            statisctics.Max = float.MinValue;
+            statisctics.Min = float.MaxValue;
+
+            var index = 0;
+
+            do
+            {
+                statisctics.Max = Math.Max(statisctics.Max, this.grades[index]);
+                statisctics.Min = Math.Min(statisctics.Min, this.grades[index]);
+                statisctics.Average += this.grades[index];
+                index++;
+            } while (index < this.grades.Count);
+
+            statisctics.Average /= this.grades.Count;
+
+            return statisctics;
+        }
+
+        public Statistics GetStatisticsWithWhile()
+        {
+            var statisctics = new Statistics();
+            statisctics.Average = 0;
+            statisctics.Max = float.MinValue;
+            statisctics.Min = float.MaxValue;
+
+            var index = 0;
+
+            while (index < this.grades.Count)
+            {
+                statisctics.Max = Math.Max(statisctics.Max, this.grades[index]);
+                statisctics.Min = Math.Min(statisctics.Min, this.grades[index]);
+                statisctics.Average += this.grades[index];
+                index++;
+            }
+
+            statisctics.Average /= this.grades.Count;
+
+            return statisctics;
+
+        }
+
+        public Statistics GetStatisticsWithForEach()
         {
             var statisctics = new Statistics();
             statisctics.Average = 0;
@@ -72,6 +119,27 @@
             statisctics.Average /= this.grades.Count;
 
             return statisctics;
+
+        }
+
+        public Statistics GetStatisticsWithFor()
+        {
+            var statisctics = new Statistics();
+            statisctics.Average = 0;
+            statisctics.Max = float.MinValue;
+            statisctics.Min = float.MaxValue;
+
+            for (var i = 0; i < this.grades.Count; i++)
+            {
+                statisctics.Max = Math.Max(statisctics.Max, this.grades[i]);
+                statisctics.Min = Math.Min(statisctics.Min, this.grades[i]);
+                statisctics.Average += this.grades[i];
+            }
+
+            statisctics.Average /= this.grades.Count;
+
+            return statisctics;
+
         }
 
     }
