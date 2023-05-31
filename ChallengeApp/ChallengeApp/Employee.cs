@@ -2,15 +2,12 @@
 
 namespace ChallengeApp
 {
-    public class Employee
+    public class Employee : Person
     {
-        public string Name { get; private set; }
-        public string Surname { get; private set; }
-
-        public Employee(string name, string surname)
-        {
-            this.Name = name;
-            this.Surname = name;
+        public Employee(string name, string surname, char sex, int age)
+            : base(name, surname, sex, age)
+        { 
+        
         }
 
         private List<float> grades = new List<float>();
@@ -33,8 +30,8 @@ namespace ChallengeApp
             {
                 this.AddGrade(result);
             }
-            else if (grade.Length == 1 )
-            { 
+            else if (grade.Length == 1)
+            {
                 char gradeAsChar = char.Parse(grade);
                 this.AddGrade(gradeAsChar);
             }
@@ -111,13 +108,13 @@ namespace ChallengeApp
             {
                 case var a when a >= 80:
                     statistics.AverageLetter = 'A';
-                    break;                
+                    break;
                 case var a when a >= 60:
                     statistics.AverageLetter = 'B';
-                    break;                
+                    break;
                 case var a when a >= 40:
                     statistics.AverageLetter = 'C';
-                    break;                
+                    break;
                 case var a when a >= 20:
                     statistics.AverageLetter = 'D';
                     break;

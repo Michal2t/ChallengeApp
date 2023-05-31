@@ -4,7 +4,7 @@ Console.WriteLine("Witamy w programie XYZ do oceny pracowników");
 Console.WriteLine("===========================================");
 Console.WriteLine();
 
-var employee = new Employee("Jan", "Nowak");
+var employee = new Employee("Jan", "Nowak", 'M', 33);
 
 while (true)
 {
@@ -14,7 +14,7 @@ while (true)
     {
         break;
     }
-    
+
     try
     {
         employee.AddGrade(input);
