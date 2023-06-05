@@ -1,14 +1,16 @@
-﻿using System.Diagnostics;
-
-namespace ChallengeApp
+﻿namespace ChallengeApp
 {
-    public class Employee : Person
+    public class Employee : IEmployee
     {
-        public Employee(string name, string surname, char sex, int age)
-            : base(name, surname, sex, age)
-        { 
-        
+        public Employee(string name, string surname)
+        {
+            this.Name = name;
+            this.Surname = surname;
         }
+
+        public string Name { get; private set; }
+
+        public string Surname { get; private set; }
 
         private List<float> grades = new List<float>();
 
