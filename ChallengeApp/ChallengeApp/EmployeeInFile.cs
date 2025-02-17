@@ -63,38 +63,23 @@
             {
                 case 'A':
                 case 'a':
-                    using (var writer = File.AppendText(fileName))
-                    {
-                        writer.WriteLine(100);
-                    }
+                    this.AddGrade(100);
                     break;
                 case 'B':
                 case 'b':
-                    using (var writer = File.AppendText(fileName))
-                    {
-                        writer.WriteLine(80);
-                    }
+                    this.AddGrade(80);
                     break;
                 case 'C':
                 case 'c':
-                    using (var writer = File.AppendText(fileName))
-                    {
-                        writer.WriteLine(60);
-                    }
+                    this.AddGrade(60);
                     break;
                 case 'D':
                 case 'd':
-                    using (var writer = File.AppendText(fileName))
-                    {
-                        writer.WriteLine(40);
-                    }
+                    this.AddGrade(40);
                     break;
                 case 'E':
                 case 'e':
-                    using (var writer = File.AppendText(fileName))
-                    {
-                        writer.WriteLine(20);
-                    }
+                    this.AddGrade(20);
                     break;
                 default:
                     throw new Exception("Wrong Letter");
